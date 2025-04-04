@@ -5,11 +5,30 @@
 }
 
 :root {
---primary-color: --secondary-color: ;
+--primary-color: #131313;
+--secondary-color: #ffffff;
 }
 
 img {
 max-width: 100%;
 display: block;
 height: auto;
+}
+
+#root {
+  display: flex;
+  border: 1px solid red;
+}
+
+.form-section {
+  display: flex;
+  width: 50%;
+  background-color: var(--primary-color);
+}
+
+/* Header */
+header {
+  display: flex;
+  color: var(--secondary-color);
+
 }
