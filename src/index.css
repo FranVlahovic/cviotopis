@@ -20,6 +20,11 @@ img {
   height: auto;
 }
 
+button:hover,
+input:hover {
+  cursor: pointer;
+}
+
 #root {
   display: flex;
   border: 1px solid red;
@@ -63,7 +68,8 @@ header h1 {
   transition: 0.4s ease-in-out;
 }
 
-.header-link:hover {
+.header-link:hover,
+.add-experience:hover {
   border-color: var(--secondary-color);
 }
 
@@ -78,7 +84,8 @@ header h1 {
   gap: 5em;
 }
 
-.personal-info-container {
+.personal-info-container,
+.experience-container {
   display: flex;
   flex-direction: column;
   grid-template-columns: repeat(2, 1fr);
@@ -86,15 +93,19 @@ header h1 {
   gap: 2em;
 }
 
-.personal-info-container h2 {
+.personal-info-container h2,
+.experience-container h2 {
   font-size: 2rem;
   font-weight: 600;
 }
 
-.personal-info-container label {
+.personal-info-container label,
+.experience-container label {
   font-size: 1.2rem;
 }
-.personal-info-container input {
+.personal-info-container input,
+.experience-container input,
+.add-experience {
   background-color: var(--inputs-buttons);
   border: 1px solid var(--border);
   border-radius: 0.5em;
@@ -113,4 +124,27 @@ header h1 {
   display: flex;
   flex-direction: column;
   gap: 1em;
+}
+
+.about-job {
+  grid-column: span 2 / span 2;
+}
+
+.add-experience {
+  display: flex;
+  max-width: 12rem;
+  align-items: center;
+  font-size: 1.1rem;
+  margin-top: 1em;
+  gap: 0.3em;
+  transition: 0.4s ease-in-out;
+}
+
+.add-experience img {
+  max-width: 1.5rem;
+  filter: invert(1);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
 }
