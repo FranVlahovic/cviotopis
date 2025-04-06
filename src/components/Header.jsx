@@ -4,7 +4,7 @@ export default function Header({ logo, text, image, altText, link }) {
             <h1 className="header-logo">{logo}</h1>
             <a className="header-link" href={link} target="_blank" rel="noopener noreferrer">
                 {text}
-                <img src={image} alt={altText} className="header-link" />
+                <img src={image} alt={altText} className="header-image" />
             </a>
         </header>
     );

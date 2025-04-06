@@ -1,18 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter";
 }
 
 :root {
---primary-color: #131313;
---secondary-color: #ffffff;
+  --primary-color: #131313;
+  --secondary-color: #ffffff;
+  --inputs-buttons: #1e1e1e;
+  --border: #383838;
 }
 
 img {
-max-width: 100%;
-display: block;
-height: auto;
+  max-width: 100%;
+  display: block;
+  height: auto;
 }
 
 #root {
@@ -22,13 +27,90 @@ height: auto;
 
 .form-section {
   display: flex;
+  flex-direction: column;
   width: 50%;
   background-color: var(--primary-color);
+  padding: 2.5em 3em;
+  gap: 5em;
 }
 
 /* Header */
 header {
   display: flex;
+  width: 100%;
   color: var(--secondary-color);
+  align-items: center;
+  justify-content: space-between;
+}
 
+header h1 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.header-link {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  gap: 0.3em;
+  background-color: var(--inputs-buttons);
+  border: 1px solid var(--border);
+  color: var(--secondary-color);
+  border-radius: 0.3em;
+  height: 40px;
+  padding: 1em 0.3em 1em 0.5em;
+  transition: 0.4s ease-in-out;
+}
+
+.header-link:hover {
+  border-color: var(--secondary-color);
+}
+
+.header-image {
+  max-width: 1.5rem;
+  filter: invert(1);
+}
+
+.form-main {
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+}
+
+.personal-info-container {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: repeat(2, 1fr);
+  color: var(--secondary-color);
+  gap: 2em;
+}
+
+.personal-info-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.personal-info-container label {
+  font-size: 1.2rem;
+}
+.personal-info-container input {
+  background-color: var(--inputs-buttons);
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  font-size: 1.2rem;
+  padding: 0.7em;
+  color: var(--secondary-color);
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }

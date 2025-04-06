@@ -1,5 +1,7 @@
-import Header from "./components/Header";
 import GitHubIcon from "./assets/icons/github.svg";
+
+import Header from "./components/Header";
+import MainContent from "./components/MainContent";
 
 
 export default function App(){
@@ -13,10 +15,11 @@ export default function App(){
                     text= "FranVlahović"
                     altText= "GitHub Logo Icon"
                 />
+                <MainContent />
             </div>
             <div className="rendered-section">
                 
             </div>
         </>
     );
-}
+};
