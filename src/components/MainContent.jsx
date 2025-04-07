@@ -1,4 +1,6 @@
+import Education from "./sections/Education";
 import PersonalInfo from "./sections/PersonalInfo";
+import Qualifications from "./sections/Qualifications";
 import WorkExperience from "./sections/WorkExperience";
 
 export default function MainContent(){
@@ -6,7 +8,9 @@ export default function MainContent(){
     return (
         <form action="" className="form-main">
             <PersonalInfo />
-            <WorkExperience buttonClass={'add-experience'} text={'Add Experience'} aria={'Add Experience'} />
+            <WorkExperience />
+            <Education />
+            <Qualifications />
         </form>
     );
 }

@@ -18,7 +18,7 @@ export default function App(){
                 <MainContent />
             </div>
             <div className="rendered-section">
-                
+
             </div>
         </>
     );

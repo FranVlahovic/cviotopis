@@ -69,7 +69,9 @@ header h1 {
 }
 
 .header-link:hover,
-.add-experience:hover {
+.add-experience:hover,
+.add-education:hover,
+.download-cv:hover {
   border-color: var(--secondary-color);
 }
 
@@ -85,7 +87,9 @@ header h1 {
 }
 
 .personal-info-container,
-.experience-container {
+.experience-container,
+.education-container,
+.qualifications-container {
   display: flex;
   flex-direction: column;
   grid-template-columns: repeat(2, 1fr);
@@ -94,18 +98,26 @@ header h1 {
 }
 
 .personal-info-container h2,
-.experience-container h2 {
+.experience-container h2,
+.education-container h2,
+.qualifications-container h2 {
   font-size: 2rem;
   font-weight: 600;
 }
 
 .personal-info-container label,
-.experience-container label {
+.experience-container label,
+.education-container label,
+.qualifications-container label {
   font-size: 1.2rem;
 }
 .personal-info-container input,
 .experience-container input,
-.add-experience {
+.add-experience,
+.education-container input,
+.add-education,
+.qualifications-container input,
+.download-cv {
   background-color: var(--inputs-buttons);
   border: 1px solid var(--border);
   border-radius: 0.5em;
@@ -130,7 +142,9 @@ header h1 {
   grid-column: span 2 / span 2;
 }
 
-.add-experience {
+.add-experience,
+.add-education,
+.download-cv {
   display: flex;
   max-width: 12rem;
   align-items: center;
@@ -140,11 +154,23 @@ header h1 {
   transition: 0.4s ease-in-out;
 }
 
-.add-experience img {
+.add-education,
+.download-cv {
+  max-width: 11rem;
+}
+
+.add-experience img,
+.add-education img,
+.download-cv img {
   max-width: 1.5rem;
   filter: invert(1);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+.qualifications-container .inputs {
+  display: grid;
+  grid-template-columns: 1fr;
 }

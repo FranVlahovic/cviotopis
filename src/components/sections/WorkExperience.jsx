@@ -1,6 +1,7 @@
+import MainButton from "../MainButton"
 import PlusIcon from "/src/assets/icons/plus.svg";
 
-export default function WorkExperience({ buttonClass, action, text, aria }){
+export default function WorkExperience(){
     return (
         <section className="experience-container">
             <h2>Work Experience</h2>
@@ -31,10 +32,7 @@ export default function WorkExperience({ buttonClass, action, text, aria }){
                 </div>
             </div>
 
-            <button className={buttonClass} onClick={action} aria-label={aria}>
-                <img src={PlusIcon} alt="Plus Icon" />
-                {text}
-            </button>
+            <MainButton buttonClass={'add-experience'} text={'Add Experience'} aria={'Add Experience'} image={PlusIcon} altImage={'Plus Icon'} />
         </section>
     );
 }
