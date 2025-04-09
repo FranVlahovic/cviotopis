@@ -28,7 +28,7 @@ export default function Education(){
 
                 <div className="form-group">
                     <label htmlFor="location">Location</label>
-                    <input type="text" id="location" name="location" />
+                    <input type="text" id="locationEdu" name="location" />
                 </div>
 
                 <div className="form-group about-education">
