@@ -12,6 +12,8 @@
   --secondary-color: #ffffff;
   --inputs-buttons: #1e1e1e;
   --border: #383838;
+  --thrash: brightness(0) saturate(100%) invert(17%) sepia(55%) saturate(6272%)
+    hue-rotate(349deg) brightness(86%) contrast(110%);
 }
 
 img {
@@ -23,11 +25,6 @@ img {
 button:hover,
 input:hover {
   cursor: pointer;
-}
-
-#root {
-  display: flex;
-  border: 1px solid red;
 }
 
 .form-section {
@@ -53,6 +50,11 @@ header h1 {
   font-weight: 700;
 }
 
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
 .header-link {
   display: flex;
   align-items: center;
@@ -71,7 +73,8 @@ header h1 {
 .header-link:hover,
 .add-experience:hover,
 .add-education:hover,
-.download-cv:hover {
+.download-cv:hover,
+.submit-button:hover {
   border-color: var(--secondary-color);
 }
 
@@ -117,7 +120,8 @@ header h1 {
 .education-container input,
 .add-education,
 .qualifications-container input,
-.download-cv {
+.download-cv,
+.submit-button {
   background-color: var(--inputs-buttons);
   border: 1px solid var(--border);
   border-radius: 0.5em;
@@ -142,9 +146,30 @@ header h1 {
   grid-column: span 2 / span 2;
 }
 
+.experience-heading,
+.education-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+  align-items: center;
+}
+
+.remove-item {
+  width: 2.3em;
+  border: none;
+  background: none;
+  filter: invert(1);
+  transition: filter 0.4s ease-in-out;
+}
+
+.remove-item:hover {
+  filter: var(--thrash);
+}
+
 .add-experience,
 .add-education,
-.download-cv {
+.download-cv,
+.submit-button {
   display: flex;
   max-width: 12rem;
   align-items: center;
@@ -154,9 +179,12 @@ header h1 {
   transition: 0.4s ease-in-out;
 }
 
-.add-education,
-.download-cv {
+.add-education {
   max-width: 11rem;
+}
+
+.download-cv {
+  width: 9.6em;
 }
 
 .add-experience img,
@@ -166,6 +194,12 @@ header h1 {
   filter: invert(1);
 }
 
+.submit-print {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
 }
@@ -173,4 +207,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .qualifications-container .inputs {
   display: grid;
   grid-template-columns: 1fr;
+}
+
+.work-experience,
+.education-info {
+  margin-bottom: 2em;
 }

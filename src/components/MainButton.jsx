@@ -1,8 +1,6 @@
-import PlusIcon from "../assets/icons/plus.svg";
-
-export default function AddButton({buttonClass, action, aria, text, image, altImage}){
+export default function AddButton({buttonClass, action, aria, text, image, altImage, type = 'button'}){
     return (
-        <button className={buttonClass} onClick={action} aria-label={aria} type="button">
+        <button className={buttonClass} onClick={action} aria-label={aria} type={type}>
             <img src={image} alt={altImage} />
             {text}
         </button>
