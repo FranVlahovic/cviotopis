@@ -3,6 +3,8 @@ import PlusIcon from "/src/assets/icons/plus.svg";
 import DeleteIcon from "/src/assets/icons/delete.svg";
 
 export default function WorkExperience({ experiences, addExperience, removeExperience, handleChange, setExperiences}){
+    
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     return (
         <section className="experience-container">
@@ -16,7 +18,7 @@ export default function WorkExperience({ experiences, addExperience, removeExper
                         </div>
                     )}
                     
-                    <div className="inputs" id={experience.id}>  
+                     <div className="inputs" id={experience.id}>  
                         <div className="form-group">
                             <label htmlFor="job">Job Title</label>
                             <input type="text" id="job" name="job" value={experience.job} onChange={(e) => handleChange(e, setExperiences, experience.id)} />
@@ -29,12 +31,22 @@ export default function WorkExperience({ experiences, addExperience, removeExper
 
                         <div className="form-group">
                             <label htmlFor="dateStart">Start Date</label>
-                            <input type="date" id="dateStart" name="dateStart" value={experience.startDate} onChange={(e) => handleChange(e,setExperiences, experience.id)} />
+                            <div className="date-inputs">
+                                <select name="startMonth" id="months" value={experience.startMonth} onChange={(e) => handleChange(e,setExperiences, experience.id)}>
+                                    {months.map(month => <option value={month}>{month}</option> )}
+                                </select>
+                                <input type="number" id="dateStart" name="startYear" value={experience.startYear} onChange={(e) => handleChange(e,setExperiences, experience.id)} />
+                            </div>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="dateEnd">End Date</label>
-                            <input type="date" id="dateEnd" name="dateEnd" value={experience.endDate} onChange={(e) => handleChange(e,setExperiences, experience.id)} />
+                                <div className="date-inputs">
+                                    <select name="endMonth" id="months" value={experience.endMonth} onChange={(e) => handleChange(e,setExperiences, experience.id)}>
+                                        {months.map(month => <option value={month}>{month}</option> )}
+                                    </select>
+                                    <input type="number" id="dateEnd" name="endYear" value={experience.endYear} onChange={(e) => handleChange(e,setExperiences, experience.id)} />
+                                </div>
                         </div>
 
                         <div className="form-group about-job">

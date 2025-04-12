@@ -13,6 +13,7 @@ export default function MainContent({ personalInfo, experiences, addExperience, 
             <WorkExperience experiences={experiences} setExperiences={setExperiences} addExperience={addExperience} handleChange={handleChange} removeExperience={removeExperience} />
             <Education education={education} setEducation={setEducation} addEducation={addEducation} handleChange={handleChange} removeEducation={removeEducation} />
             <Qualifications qualifications={qualifications} setQualifications={setQualifications} handleChange={handleChange} />
+            
             <div className="submit-print">
                 <MainButton buttonClass={'submit-button'} aria={'Submit Form'} text={'Submit Form'} type="submit" /> 
                 <MainButton buttonClass={'download-cv'} text={'Download CV'} aria={'Download CV Resume'} image={DownloadIcon} altImage={'Download Icon'} action={handlePrint} />

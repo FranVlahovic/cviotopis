@@ -2,7 +2,10 @@ import MainButton from "../MainButton";
 import PlusIcon from "/src/assets/icons/plus.svg";
 import DeleteIcon from "/src/assets/icons/delete.svg";
 
+
 export default function Education({ education, addEducation, handleChange, removeEducation, setEducation }){
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
     return (
         <section className="education-container">
             <h2>Education</h2>
@@ -27,13 +30,24 @@ export default function Education({ education, addEducation, handleChange, remov
 
                         <div className="form-group">
                             <label htmlFor="dateStart">Start Date</label>
-                            <input type="date" id="dateStart" name="dateStart" value={edu.startDate} onChange={(e) => handleChange(e, setEducation, edu.id)} />
+                            <div className="date-inputs">
+                                <select name="startMonth" id="months" value={edu.startMonth} onChange={(e) => handleChange(e,setEducation, edu.id)}>
+                                    {months.map(month => <option value={month}>{month}</option> )}
+                                </select>
+                                <input type="number" id="dateStart" name="startYear" value={edu.startYear} onChange={(e) => handleChange(e,setEducation, edu.id)} />
+                            </div>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="dateEnd">End Date</label>
-                            <input type="date" id="dateEnd" name="dateEnd" value={edu.endDate} onChange={(e) => handleChange(e, setEducation, edu.id)} />
+                                <div className="date-inputs">
+                                    <select name="endMonth" id="months" value={edu.endMonth} onChange={(e) => handleChange(e,setEducation, edu.id)}>
+                                        {months.map(month => <option value={month}>{month}</option> )}
+                                    </select>
+                                    <input type="number" id="dateEnd" name="endYear" value={edu.endYear} onChange={(e) => handleChange(e,setEducation, edu.id)} />
+                                </div>
                         </div>
+
 
                         <div className="form-group">
                             <label htmlFor="location">Location</label>

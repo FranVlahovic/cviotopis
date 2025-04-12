@@ -125,7 +125,8 @@ h3 {
 .add-education,
 .qualifications-container input,
 .download-cv,
-.submit-button {
+.submit-button,
+select {
   background-color: var(--inputs-buttons);
   border: 1px solid var(--border);
   border-radius: 0.5em;
@@ -204,9 +205,13 @@ h3 {
   align-items: center;
 }
 
-/* input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-} */
+.date-inputs {
+  display: flex;
+  gap: 2em;
+}
+.date-inputs input {
+  width: 30%;
+}
 
 .qualifications-container .inputs {
   display: grid;
@@ -216,4 +221,8 @@ h3 {
 .work-experience,
 .education-info {
   margin-bottom: 2em;
+}
+
+.rendered-section {
+  height: 100vh;
 }
