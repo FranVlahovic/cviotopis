@@ -25,10 +25,24 @@ export default function App(){
         setEducation(prev => [...prev, { degree: '', university: '', startDate: '', endDate: '', location: '', aboutEducation: '', id:crypto.randomUUID() }])
     }
 
-    const handleInputChange = (e) => {
-        
+    function handleChange(e, setter, id = null) {
+        const { name, value } = e.target;
+    
+        // If there's no ID, update a flat object (personalInfo, qualifications)
+        if (!id) {
+            setter(prev => ({ ...prev, [name]: value }));
+        } 
+        // If ID exists, update a specific item in an array (experiences, education)
+        else {
+            setter(prev =>
+                prev.map(item =>
+                    item.id === id ? { ...item, [name]: value } : item
+                )
+            );
+        }
     }
-
+    
+      
     const removeExperience = (id) => {
         setExperiences(prev => prev.filter(item => item.id !== id));
     }
@@ -53,7 +67,7 @@ export default function App(){
     }
     
     return (
-        <>
+        <main>
             <div className="form-section">
                 <Header 
                     logo= "cviotopis" 
@@ -62,11 +76,11 @@ export default function App(){
                     text= "FranVlahović"
                     altText= "GitHub Logo Icon"
                 />
-                <MainContent personalInfo={personalInfo} experiences={experiences} addExperience={addExperience}  education={education} addEducation={addEducation} qualifications={qualifications} removeExperience={removeExperience} removeEducation={removeEducation} handleInputChange={handleInputChange} handleSubmit={handleSubmit} handlePrint={handlePrint} />
+                <MainContent personalInfo={personalInfo} experiences={experiences} addExperience={addExperience}  education={education} addEducation={addEducation} qualifications={qualifications} removeExperience={removeExperience} removeEducation={removeEducation} handleSubmit={handleSubmit} handlePrint={handlePrint} handleChange={handleChange} setPersonalInfo={setPersonalInfo} setEducation={setEducation} setExperiences={setExperiences} setQualifications={setQualifications} />    
             </div>
             <div className="rendered-section">
                 <RenderResume personalInfo={personalInfo} experiences={experiences} education={education} qualifications={qualifications} />
             </div>
-        </>
+        </main>
     );
 };

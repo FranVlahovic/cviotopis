@@ -2,7 +2,7 @@ import MainButton from "../MainButton";
 import PlusIcon from "/src/assets/icons/plus.svg";
 import DeleteIcon from "/src/assets/icons/delete.svg";
 
-export default function Education({ education, addEducation, handleInputChange, removeEducation }){
+export default function Education({ education, addEducation, handleChange, removeEducation, setEducation }){
     return (
         <section className="education-container">
             <h2>Education</h2>
@@ -17,32 +17,32 @@ export default function Education({ education, addEducation, handleInputChange, 
                     <div className="inputs">
                         <div className="form-group">
                             <label htmlFor="degree">Degree</label>
-                            <input type="text" id="degree" name="degree" value={edu.degree} onChange={handleInputChange} />
+                            <input type="text" id="degree" name="degree" value={edu.degree} onChange={(e) => handleChange(e, setEducation, edu.id)} />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="university">University Name</label>
-                            <input type="text" id="university" name="university" value={edu.university} onChange={handleInputChange} />
+                            <input type="text" id="university" name="university" value={edu.university} onChange={(e) => handleChange(e, setEducation, edu.id)} />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="dateStart">Start Date</label>
-                            <input type="date" id="dateStart" name="dateStart" value={edu.startDate} onChange={handleInputChange} />
+                            <input type="date" id="dateStart" name="dateStart" value={edu.startDate} onChange={(e) => handleChange(e, setEducation, edu.id)} />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="dateEnd">End Date</label>
-                            <input type="date" id="dateEnd" name="dateEnd" value={edu.endDate} onChange={handleInputChange} />
+                            <input type="date" id="dateEnd" name="dateEnd" value={edu.endDate} onChange={(e) => handleChange(e, setEducation, edu.id)} />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="location">Location</label>
-                            <input type="text" id="locationEdu" name="location" value={edu.location} onChange={handleInputChange} />
+                            <input type="text" id="locationEdu" name="location" value={edu.location} onChange={(e) => handleChange(e, setEducation, edu.id)} />
                         </div>
 
                         <div className="form-group about-education">
                             <label htmlFor="aboutEducation">About</label>
-                            <input type="textarea" id="aboutEducation" name="aboutEducation" value={edu.aboutEducation} onChange={handleInputChange} />
+                            <input type="textarea" id="aboutEducation" name="aboutEducation" value={edu.aboutEducation} onChange={(e) => handleChange(e, setEducation, edu.id)} />
                         </div>
                     </div>
                 </div>

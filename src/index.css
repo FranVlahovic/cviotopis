@@ -22,6 +22,10 @@ img {
   height: auto;
 }
 
+main {
+  display: flex;
+}
+
 button:hover,
 input:hover {
   cursor: pointer;
@@ -200,9 +204,9 @@ h3 {
   align-items: center;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
+/* input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
-}
+} */
 
 .qualifications-container .inputs {
   display: grid;
