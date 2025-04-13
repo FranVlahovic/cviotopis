@@ -20,12 +20,12 @@ export default function Education({ education, addEducation, handleChange, remov
                     <div className="inputs">
                         <div className="form-group">
                             <label htmlFor="degree">Degree</label>
-                            <input type="text" id="degree" name="degree" value={edu.degree} onChange={(e) => handleChange(e, setEducation, edu.id)} />
+                            <input type="text" id="degree" name="degree" value={edu.degree} onChange={(e) => handleChange(e, setEducation, edu.id)} required />
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="university">University Name</label>
-                            <input type="text" id="university" name="university" value={edu.university} onChange={(e) => handleChange(e, setEducation, edu.id)} />
+                            <input type="text" id="university" name="university" value={edu.university} onChange={(e) => handleChange(e, setEducation, edu.id)} required />
                         </div>
 
                         <div className="form-group">
@@ -34,7 +34,7 @@ export default function Education({ education, addEducation, handleChange, remov
                                 <select name="startMonth" id="months" value={edu.startMonth} onChange={(e) => handleChange(e,setEducation, edu.id)}>
                                     {months.map(month => <option value={month}>{month}</option> )}
                                 </select>
-                                <input type="number" id="dateStart" name="startYear" value={edu.startYear} onChange={(e) => handleChange(e,setEducation, edu.id)} />
+                                <input type="number" id="dateStart" name="startYear" value={edu.startYear} onChange={(e) => handleChange(e,setEducation, edu.id)} required />
                             </div>
                         </div>
 
@@ -44,14 +44,14 @@ export default function Education({ education, addEducation, handleChange, remov
                                     <select name="endMonth" id="months" value={edu.endMonth} onChange={(e) => handleChange(e,setEducation, edu.id)}>
                                         {months.map(month => <option value={month}>{month}</option> )}
                                     </select>
-                                    <input type="number" id="dateEnd" name="endYear" value={edu.endYear} onChange={(e) => handleChange(e,setEducation, edu.id)} />
+                                    <input type="number" id="dateEnd" name="endYear" value={edu.endYear} onChange={(e) => handleChange(e,setEducation, edu.id)} required />
                                 </div>
                         </div>
 
 
                         <div className="form-group">
                             <label htmlFor="location">Location</label>
-                            <input type="text" id="locationEdu" name="location" value={edu.location} onChange={(e) => handleChange(e, setEducation, edu.id)} />
+                            <input type="text" id="locationEdu" name="location" value={edu.location} onChange={(e) => handleChange(e, setEducation, edu.id)} required />
                         </div>
 
                         <div className="form-group about-education">

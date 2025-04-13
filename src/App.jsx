@@ -9,6 +9,47 @@ import RenderResume from "./components/RenderResume";
 
 
 export default function App(){
+    const translations = {
+        en: {
+          heading: "Personal Information",
+          firstName: "First Name",
+          lastName: "Last Name",
+          email: "Email",
+          phone: "Phone Number",
+          link1: "Link 1",
+          link2: "Link 2",
+          location: "Location",
+
+          headingExperience: "Work Experience",
+          experience: "Experience",
+          expTitle: "Job Title",
+          companyName: "Company Name",
+          startDate: "Start Date",
+          endDate: "End Date",
+          about: "About",
+          addExperience: "Add Experience"
+        },
+        hr: {
+          heading: "Osobne Informacije",
+          firstName: "Ime",
+          lastName: "Prezime",
+          email: "Email",
+          phone: "Broj Telefona",
+          link1: "Link 1",
+          link2: "Link 2",
+          location: "Lokacija",
+
+          headingExperience: "Radno Iskustvo",
+          experience: "Iskustvo",
+          expTitle: "Uloga",
+          companyName:"Poslodavac",
+          startDate: "Početak rada",
+          endDate: "Završetak rada",
+          about: "Opis",
+          addExperience: "Dodaj Iskustvo"
+        }
+    };
+
     const [personalInfo, setPersonalInfo] = useState({ firstName: '', lastName: '', email: '', phone: '', firstLink:'', secondLink:'', location:'' })
 
     const [experiences, setExperiences] = useState([{ job: '', companyName:'', startMonth: '', startYear: '', endMonth: '', endYear: '', aboutJob:'', id:crypto.randomUUID() }])
@@ -19,11 +60,14 @@ export default function App(){
 
     const [resumeVisible, setResumeVisible] = useState(false);
 
-    const addExperience = () => {
+    const [language, setLanguage] = useState('en');
+    
+
+    function addExperience () {
         setExperiences(prev => [...prev, { job: '', companyName:'', startMonth: '', startYear: '', aboutJob:'', id:crypto.randomUUID() }])
     }    
 
-    const addEducation = () => {
+    function addEducation(){
         setEducation(prev => [...prev, { degree: '', university: '', startDate: '', endDate: '', location: '', aboutEducation: '', id:crypto.randomUUID() }])
     }    
 
@@ -43,16 +87,17 @@ export default function App(){
         }    
     }    
       
-    const removeExperience = (id) => {
+    function removeExperience(id) {
         setExperiences(prev => prev.filter(item => item.id !== id));
     }    
 
-    const removeEducation = (id) => {
+    function removeEducation(id) {
         setEducation(prev => prev.filter(item => item.id !== id));
     }    
 
-    const handleSubmit = (e) => {
+    function handleSubmit (e) {
         e.preventDefault();
+        window.scrollTo({top: 0, left: 0, behavior: "smooth"});
         setResumeVisible(!resumeVisible);
     }
 
@@ -78,8 +123,27 @@ export default function App(){
                     image={GitHubIcon}
                     text= "FranVlahović"
                     altText= "GitHub Logo Icon"
+                    setLanguage={setLanguage}
                 />
-                <MainContent personalInfo={personalInfo} experiences={experiences} addExperience={addExperience}  education={education} addEducation={addEducation} qualifications={qualifications} removeExperience={removeExperience} removeEducation={removeEducation} handleSubmit={handleSubmit} handlePrint={handlePrint} handleChange={handleChange} setPersonalInfo={setPersonalInfo} setEducation={setEducation} setExperiences={setExperiences} setQualifications={setQualifications} />    
+                <MainContent 
+                    personalInfo={personalInfo} 
+                    experiences={experiences} 
+                    addExperience={addExperience}  
+                    education={education} 
+                    addEducation={addEducation} 
+                    qualifications={qualifications} 
+                    removeExperience={removeExperience} 
+                    removeEducation={removeEducation} 
+                    handleSubmit={handleSubmit} 
+                    handlePrint={handlePrint} 
+                    handleChange={handleChange} 
+                    setPersonalInfo={setPersonalInfo} 
+                    setEducation={setEducation} 
+                    setExperiences={setExperiences} 
+                    setQualifications={setQualifications}
+                    language={language}
+                    translations={translations}  
+                />    
             </div>
             <div className="rendered-section">
                 <RenderResume personalInfo={personalInfo} experiences={experiences} education={education} qualifications={qualifications} resumeVisible={resumeVisible} />

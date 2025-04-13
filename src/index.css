@@ -47,6 +47,7 @@ header {
   color: var(--secondary-color);
   align-items: center;
   justify-content: space-between;
+  gap: 1.5em;
 }
 
 header h1 {
@@ -61,6 +62,8 @@ h3 {
 
 .header-link {
   display: flex;
+  margin-left: auto;
+  justify-self: end;
   align-items: center;
   font-size: 1.2rem;
   text-decoration: none;
@@ -225,4 +228,9 @@ select {
 
 .rendered-section {
   height: 100vh;
+}
+
+.language-selector {
+  font-size: 1em;
+  padding: 0.5em;
 }
