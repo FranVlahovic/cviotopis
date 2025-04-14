@@ -27,7 +27,8 @@ main {
 }
 
 button:hover,
-input:hover {
+input:hover,
+select:hover {
   cursor: pointer;
 }
 
@@ -50,6 +51,15 @@ header {
   gap: 1.5em;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.header-right button {
+  transition: 0.4s ease-in-out;
+}
+
 header h1 {
   font-size: 4rem;
   font-weight: 700;
@@ -62,7 +72,6 @@ h3 {
 
 .header-link {
   display: flex;
-  margin-left: auto;
   justify-self: end;
   align-items: center;
   font-size: 1.2rem;
@@ -77,11 +86,11 @@ h3 {
   transition: 0.4s ease-in-out;
 }
 
-.header-link:hover,
 .add-experience:hover,
 .add-education:hover,
 .download-cv:hover,
-.submit-button:hover {
+.submit-button:hover,
+.header-right button:hover {
   border-color: var(--secondary-color);
 }
 
@@ -129,6 +138,8 @@ h3 {
 .qualifications-container input,
 .download-cv,
 .submit-button,
+.edit-form-button,
+.reset-form-button,
 select {
   background-color: var(--inputs-buttons);
   border: 1px solid var(--border);
@@ -230,7 +241,9 @@ select {
   height: 100vh;
 }
 
-.language-selector {
+.language-selector,
+.edit-form-button,
+.reset-form-button {
   font-size: 1em;
   padding: 0.5em;
 }

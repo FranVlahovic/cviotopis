@@ -97,13 +97,66 @@ export default function App(){
 
     function handleSubmit (e) {
         e.preventDefault();
+        setResumeVisible(true);
         window.scrollTo({top: 0, left: 0, behavior: "smooth"});
-        setResumeVisible(!resumeVisible);
     }
 
+    function handleEdit(e){
+        e.preventDefault();
+        setResumeVisible(false);
+    }
+    
+    function handleReset(e) {
+        e.preventDefault();
+
+        setPersonalInfo({ 
+            firstName: '', 
+            lastName: '', 
+            email: '', 
+            phone: '', 
+            firstLink: '', 
+            secondLink: '', 
+            location: '' 
+        });
+    
+        setExperiences([
+            { 
+                job: '', 
+                companyName: '', 
+                startMonth: '', 
+                startYear: '', 
+                endMonth: '', 
+                endYear: '', 
+                aboutJob: '', 
+                id: crypto.randomUUID() 
+            }
+        ]);
+    
+        setEducation([
+            { 
+                degree: '', 
+                university: '', 
+                startDate: '', 
+                endDate: '', 
+                location: '', 
+                aboutEducation: '', 
+                id: crypto.randomUUID() 
+            }
+        ]);
+    
+        setQualifications({ 
+            certificates: '', 
+            technologies: '', 
+            skills: '', 
+            interests: '' 
+        });
+    
+        setResumeVisible(false);
+    }
+    
     function handlePrint() {
         const printedPage = document.querySelector(".rendered-section");
-    
+        
         const opt = {
             filename:     `${personalInfo.firstName}${personalInfo.lastName}-resume.pdf`,
             image:        { type: 'pdf', quality: 0.98 },
@@ -113,6 +166,7 @@ export default function App(){
     
         resumeVisible && html2pdf().set(opt).from(printedPage).save();
     }
+    
     
     return (
         <main>
@@ -124,6 +178,9 @@ export default function App(){
                     text= "FranVlahović"
                     altText= "GitHub Logo Icon"
                     setLanguage={setLanguage}
+                    handleEdit={handleEdit}
+                    handleReset={handleReset}
+                    resumeVisible={resumeVisible}
                 />
                 <MainContent 
                     personalInfo={personalInfo} 
@@ -142,7 +199,8 @@ export default function App(){
                     setExperiences={setExperiences} 
                     setQualifications={setQualifications}
                     language={language}
-                    translations={translations}  
+                    translations={translations}
+                    resumeVisible={resumeVisible}
                 />    
             </div>
             <div className="rendered-section">
