@@ -41,7 +41,6 @@ select:hover {
   gap: 5em;
 }
 
-/* Header */
 header {
   display: flex;
   width: 100%;
@@ -86,6 +85,8 @@ h3 {
   transition: 0.4s ease-in-out;
 }
 
+.header-link:hover,
+select:hover,
 .add-experience:hover,
 .add-education:hover,
 .download-cv:hover,
@@ -217,6 +218,10 @@ select {
   display: flex;
   gap: 2em;
   align-items: center;
+}
+
+.submit-button {
+  padding: 0.8em;
 }
 
 .date-inputs {

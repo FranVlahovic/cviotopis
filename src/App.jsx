@@ -27,7 +27,22 @@ export default function App(){
           startDate: "Start Date",
           endDate: "End Date",
           about: "About",
-          addExperience: "Add Experience"
+          addExperience: "Add Experience",
+
+          headingEducation: "Education",
+          education: "Education",
+          degree: "Degree",
+          university: "University Name",
+          addEducation: "Add Education",
+
+          qualifications: "Qualifications",
+          certificates: "Certifications",
+          technologies: "Technologies",
+          skills: "Skills",
+          interests: "Interests",
+
+          submitForm: "Submit Form",
+          download: "Download CV",
         },
         hr: {
           heading: "Osobne Informacije",
@@ -46,7 +61,23 @@ export default function App(){
           startDate: "Početak rada",
           endDate: "Završetak rada",
           about: "Opis",
-          addExperience: "Dodaj Iskustvo"
+          addExperience: "Dodaj Iskustvo",
+
+          headingEducation: "Obrazovanje",
+          education: "Obrazovanje",
+          degree: "Naziv Smjera",
+          university: "Naziv ustanove",
+          addEducation: "Dodaj Obraz.",
+
+          qualifications: "Kvalifikacije",
+          certificates: "Certifikati",
+          technologies: "Tehnologije",
+          skills: "Vještine",
+          interests: "Interesi",
+
+          submitForm: "Kreiraj CV",
+          download: "Preuzmi CV",
+
         }
     };
 
@@ -98,7 +129,7 @@ export default function App(){
     function handleSubmit (e) {
         e.preventDefault();
         setResumeVisible(true);
-        window.scrollTo({top: 0, left: 0, behavior: "smooth"});
+        window.scrollTo({top: 0,behavior: "smooth"});
     }
 
     function handleEdit(e){
@@ -204,7 +235,7 @@ export default function App(){
                 />    
             </div>
             <div className="rendered-section">
-                <RenderResume personalInfo={personalInfo} experiences={experiences} education={education} qualifications={qualifications} resumeVisible={resumeVisible} />
+                <RenderResume personalInfo={personalInfo} experiences={experiences} education={education} qualifications={qualifications} resumeVisible={resumeVisible} translations={translations} language={language} />
             </div>
         </main>
     );

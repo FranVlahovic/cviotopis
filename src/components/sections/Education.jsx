@@ -3,33 +3,35 @@ import PlusIcon from "/src/assets/icons/plus.svg";
 import DeleteIcon from "/src/assets/icons/delete.svg";
 
 
-export default function Education({ education, addEducation, handleChange, removeEducation, setEducation }){
+export default function Education({ education, addEducation, handleChange, removeEducation, setEducation, language, translations }){
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     
+    const lang = translations[language];
+
     return (
         <section className="education-container">
-            <h2>Education</h2>
+            <h2>{lang.headingEducation}</h2>
             {education.map((edu, index) => (
                 <div className="education-info" key={index}>
                     {education.length > 1 && (
                         <div className="education-heading">
-                            <h3>Education {index + 1}</h3>
+                            <h3>{lang.education} {index + 1}</h3>
                             <MainButton buttonClass={'remove-item'} aria={'Remove Experience'} image={DeleteIcon} altImage={'Plus Icon'} action={() => removeEducation(edu.id)} />
                         </div>
                     )}
                     <div className="inputs">
                         <div className="form-group">
-                            <label htmlFor="degree">Degree</label>
+                            <label htmlFor="degree">{lang.degree}</label>
                             <input type="text" id="degree" name="degree" value={edu.degree} onChange={(e) => handleChange(e, setEducation, edu.id)} required />
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="university">University Name</label>
+                            <label htmlFor="university">{lang.university}</label>
                             <input type="text" id="university" name="university" value={edu.university} onChange={(e) => handleChange(e, setEducation, edu.id)} required />
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="dateStart">Start Date</label>
+                            <label htmlFor="dateStart">{lang.startDate}</label>
                             <div className="date-inputs">
                                 <select name="startMonth" id="months" value={edu.startMonth} onChange={(e) => handleChange(e,setEducation, edu.id)}>
                                     {months.map(month => <option value={month}>{month}</option> )}
@@ -39,7 +41,7 @@ export default function Education({ education, addEducation, handleChange, remov
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="dateEnd">End Date</label>
+                            <label htmlFor="dateEnd">{lang.endDate}</label>
                                 <div className="date-inputs">
                                     <select name="endMonth" id="months" value={edu.endMonth} onChange={(e) => handleChange(e,setEducation, edu.id)}>
                                         {months.map(month => <option value={month}>{month}</option> )}
@@ -50,19 +52,19 @@ export default function Education({ education, addEducation, handleChange, remov
 
 
                         <div className="form-group">
-                            <label htmlFor="location">Location</label>
+                            <label htmlFor="location">{lang.location}</label>
                             <input type="text" id="locationEdu" name="location" value={edu.location} onChange={(e) => handleChange(e, setEducation, edu.id)} required />
                         </div>
 
                         <div className="form-group about-education">
-                            <label htmlFor="aboutEducation">About</label>
+                            <label htmlFor="aboutEducation">{lang.about}</label>
                             <input type="textarea" id="aboutEducation" name="aboutEducation" value={edu.aboutEducation} onChange={(e) => handleChange(e, setEducation, edu.id)} />
                         </div>
                     </div>
                 </div>
             ))}
 
-            <MainButton buttonClass={'add-education'} text={'Add Education'} aria={'Add Education'} image={PlusIcon} altImage={'Plus Icon'} action={addEducation} />
+            <MainButton buttonClass={'add-education'} text={lang.addEducation} aria={'Add Education'} image={PlusIcon} altImage={'Plus Icon'} action={addEducation} />
         </section>
     );
 }
