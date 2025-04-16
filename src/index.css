@@ -24,6 +24,8 @@ img {
 
 main {
   display: flex;
+  padding: 0;
+  margin: 0;
 }
 
 button:hover,
@@ -242,13 +244,116 @@ select {
   margin-bottom: 2em;
 }
 
-.rendered-section {
-  height: 100vh;
-}
-
 .language-selector,
 .edit-form-button,
 .reset-form-button {
   font-size: 1em;
   padding: 0.5em;
+}
+
+/* Rendered Containers */
+.rendered-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  height: fit-content;
+  padding: 3em 4em;
+  gap: 1.5em;
+}
+
+.rendered-personal-container {
+  display: flex;
+  flex-direction: column;
+}
+.rendered-personal-nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.rendered-experience-info-first,
+.rendered-experience-info-second,
+.rendered-education-info-first,
+.rendered-education-info-second {
+  display: flex;
+  justify-content: space-between;
+}
+.rendered-education-info-second,
+.rendered-experience-info-second {
+  margin-bottom: 0.5em;
+}
+
+@media print {
+  body {
+    visibility: hidden;
+  }
+  .rendered-section {
+    width: 100%;
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    page-break-inside: avoid;
+    display: block;
+  }
+}
+
+.rendered-section h1 {
+  font-size: 40px;
+}
+.rendered-personal-nav h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+.rendered-personal-nav a {
+  text-decoration: none;
+}
+.nav-line {
+  border-left: 2px solid var(--primary-color);
+}
+
+.rendered-education-container h2,
+.rendered-experience-container h2,
+.rendered-qualifications-container h2 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 7%;
+  border-bottom: 2px solid var(--primary-color);
+  text-transform: uppercase;
+}
+.rendered-section h3 {
+  font-size: 16px;
+  letter-spacing: 2%;
+  font-weight: 700;
+}
+.rendered-education-info-second h3,
+.rendered-experience-info-second h3 {
+  font-size: 14px;
+  font-weight: 500;
+}
+.rendered-section p {
+  font-size: 15px;
+}
+.rendered-personal-container,
+.rendered-experience-container,
+.rendered-education-container,
+.rendered-qualifications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+.rendered-personal-container {
+  gap: 0;
+}
+.rendered-qualifications p {
+  margin-bottom: 1em;
+}
+
+input.input-disabled {
+  opacity: 0.3;
+  pointer-events: none;
 }

@@ -1,5 +1,3 @@
-import html2pdf from "html2pdf.js";
-
 import { useState } from "react";
 import GitHubIcon from "./assets/icons/github.svg";
 
@@ -16,9 +14,9 @@ export default function App(){
           lastName: "Last Name",
           email: "Email",
           phone: "Phone Number",
-          link1: "Link 1",
-          link2: "Link 2",
           location: "Location",
+          link1: "Portfolio",
+          link2: "GitHub",
 
           headingExperience: "Work Experience",
           experience: "Experience",
@@ -50,8 +48,8 @@ export default function App(){
           lastName: "Prezime",
           email: "Email",
           phone: "Broj Telefona",
-          link1: "Link 1",
-          link2: "Link 2",
+          link1: "Portfolio",
+          link2: "GitHub",
           location: "Lokacija",
 
           headingExperience: "Radno Iskustvo",
@@ -186,16 +184,76 @@ export default function App(){
     }
     
     function handlePrint() {
-        const printedPage = document.querySelector(".rendered-section");
-        
-        const opt = {
-            filename:     `${personalInfo.firstName}${personalInfo.lastName}-resume.pdf`,
-            image:        { type: 'pdf', quality: 0.98 },
-            html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-        };
+        window.print();
+    }
+
+    function boilerplateCV(e) {
+        e.preventDefault();
+
+        setPersonalInfo({ 
+            firstName: 'Fran', 
+            lastName: 'Vlahovic', 
+            email: 'franvlahovic@proton.me', 
+            phone: '0911234567', 
+            firstLink: '', 
+            secondLink: 'https://github.com/FranVlahovic', 
+            location: 'Opatija, Hrvatska' 
+        });
     
-        resumeVisible && html2pdf().set(opt).from(printedPage).save();
+        setExperiences([
+            { 
+                job: 'Full Stack Developer', 
+                companyName: 'Google Croatia', 
+                startMonth: 'August', 
+                startYear: '2025', 
+                endMonth: '', 
+                endYear: '', 
+                aboutJob: 'Currently working as an Full Stack Developer for FAANG Company (Google).', 
+                id: crypto.randomUUID() 
+            },
+            { 
+                job: 'Front End Developer', 
+                companyName: 'Odin Project', 
+                startMonth: 'August', 
+                startYear: '2020', 
+                endMonth: 'May', 
+                endYear: '2025', 
+                aboutJob: 'Worked as an Front End Developer, worked for the biggest web development open source curriculum.', 
+                id: crypto.randomUUID() 
+            },
+            { 
+                job: 'Front End Developer', 
+                companyName: 'Pied Pipper', 
+                startMonth: 'August', 
+                startYear: '2016', 
+                endMonth: 'August', 
+                endYear: '2018', 
+                aboutJob: 'Worked as an Front End Developer, learned a lot about lossless compression.', 
+                id: crypto.randomUUID() 
+            }
+        ]);
+    
+        setEducation([
+            { 
+                degree: 'Business Entrepreneurship', 
+                university: 'Veleuciliste u Rijeci',
+                startMonth: 'August', 
+                startYear: '2016', 
+                endMonth: 'August',
+                endYear: '2019', 
+                location: 'Rijeka', 
+                aboutEducation: 'Finished 120 ECTS in Business Studies.', 
+                id: crypto.randomUUID() 
+            }
+        ]);
+    
+        setQualifications({ 
+            certificates: 'Python for Everybody (University of Michigan), DataData Everywhere (Google).', 
+            technologies: 'Mongo DB, Express, React, Node JS, Docker, Git, HTML, CSS, Bundlers.', 
+            skills: 'Web Development, Software Development, Mobile Development, Graphic Design, Sales.', 
+            interests: 'Weightlifting, Sports, Outdoors, Running, Cooking.' 
+        });
+    
     }
     
     
@@ -212,6 +270,7 @@ export default function App(){
                     handleEdit={handleEdit}
                     handleReset={handleReset}
                     resumeVisible={resumeVisible}
+                    boilerplateCV={boilerplateCV}
                 />
                 <MainContent 
                     personalInfo={personalInfo} 
@@ -234,7 +293,7 @@ export default function App(){
                     resumeVisible={resumeVisible}
                 />    
             </div>
-            <div className="rendered-section">
+            <div className="rendered-section" style={{ display: resumeVisible ? "block" : "none" }}>
                 <RenderResume personalInfo={personalInfo} experiences={experiences} education={education} qualifications={qualifications} resumeVisible={resumeVisible} translations={translations} language={language} />
             </div>
         </main>

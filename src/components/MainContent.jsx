@@ -12,9 +12,9 @@ export default function MainContent({ personalInfo, experiences, addExperience, 
     return (
         <form onSubmit={handleSubmit} className="form-main">
             <PersonalInfo personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} handleChange={handleChange} language={language} translations={translations} resumeVisible={resumeVisible} />
-            <WorkExperience experiences={experiences} setExperiences={setExperiences} addExperience={addExperience} handleChange={handleChange} removeExperience={removeExperience} language={language} translations={translations} />
-            <Education education={education} setEducation={setEducation} addEducation={addEducation} handleChange={handleChange} removeEducation={removeEducation} language={language} translations={translations} />
-            <Qualifications qualifications={qualifications} setQualifications={setQualifications} handleChange={handleChange} language={language} translations={translations} />
+            <WorkExperience experiences={experiences} setExperiences={setExperiences} addExperience={addExperience} handleChange={handleChange} removeExperience={removeExperience} language={language} translations={translations} resumeVisible={resumeVisible} />
+            <Education education={education} setEducation={setEducation} addEducation={addEducation} handleChange={handleChange} removeEducation={removeEducation} language={language} translations={translations} resumeVisible={resumeVisible} />
+            <Qualifications qualifications={qualifications} setQualifications={setQualifications} handleChange={handleChange} language={language} translations={translations} resumeVisible={resumeVisible} />
             
             <div className="submit-print">
                 <MainButton buttonClass={'submit-button'} aria={'Submit Form'} text={lang.submitForm} type="submit" disabled={resumeVisible} />
