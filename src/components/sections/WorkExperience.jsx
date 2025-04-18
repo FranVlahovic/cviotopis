@@ -59,7 +59,7 @@ export default function WorkExperience({ experiences, addExperience, removeExper
                     </div>
                 </div>
             ))}
-            <MainButton buttonClass={'add-experience'} text={lang.addExperience} aria={'Add Experience'} image={PlusIcon} altImage={'Plus Icon'} action={addExperience} />
+            <MainButton buttonClass={'add-experience'} text={lang.addExperience} aria={'Add Experience'} image={PlusIcon} altImage={'Plus Icon'} action={addExperience} disabled={resumeVisible} />
         </section>
     );
 }

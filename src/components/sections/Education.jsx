@@ -16,7 +16,8 @@ export default function Education({ education, addEducation, handleChange, remov
                     {education.length > 1 && (
                         <div className="education-heading">
                             <h3>{lang.education} {index + 1}</h3>
-                            <MainButton buttonClass={'remove-item'} aria={'Remove Experience'} image={DeleteIcon} altImage={'Plus Icon'} action={() => removeEducation(edu.id)} />
+                            {!resumeVisible && <MainButton buttonClass={'remove-item'} aria={'Remove Experience'} image={DeleteIcon} altImage={'Plus Icon'} action={() => removeEducation(edu.id)} /> }
+
                         </div>
                     )}
                     <div className="inputs">
@@ -66,7 +67,7 @@ export default function Education({ education, addEducation, handleChange, remov
                 </div>
             ))}
 
-            <MainButton buttonClass={'add-education'} text={lang.addEducation} aria={'Add Education'} image={PlusIcon} altImage={'Plus Icon'} action={addEducation} />
+            <MainButton buttonClass={'add-education'} text={lang.addEducation} aria={'Add Education'} image={PlusIcon} altImage={'Plus Icon'} action={addEducation} disabled={resumeVisible} />
         </section>
     );
 }

@@ -4,9 +4,23 @@ import GitHubIcon from "./assets/icons/github.svg";
 import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import RenderResume from "./components/RenderResume";
+import Footer from "./components/Footer";
 
 
 export default function App(){
+    
+    const [personalInfo, setPersonalInfo] = useState({ firstName: '', lastName: '', email: '', phone: '', firstLink:'', secondLink:'', location:'' })
+    
+    const [experiences, setExperiences] = useState([{ job: '', companyName:'', startMonth: '', startYear: '', endMonth: '', endYear: '', aboutJob:'', id:crypto.randomUUID() }])
+    
+    const [education, setEducation] = useState([{ degree: '', university: '', startDate: '', endDate: '', location: '', aboutEducation: '', id:crypto.randomUUID() }])
+    
+    const [qualifications, setQualifications] = useState({ certificates:'', technologies:'', skills:'', interests:'' })
+    
+    const [resumeVisible, setResumeVisible] = useState(false);
+    
+    const [language, setLanguage] = useState('en');
+    
     const translations = {
         en: {
           heading: "Personal Information",
@@ -78,20 +92,7 @@ export default function App(){
 
         }
     };
-
-    const [personalInfo, setPersonalInfo] = useState({ firstName: '', lastName: '', email: '', phone: '', firstLink:'', secondLink:'', location:'' })
-
-    const [experiences, setExperiences] = useState([{ job: '', companyName:'', startMonth: '', startYear: '', endMonth: '', endYear: '', aboutJob:'', id:crypto.randomUUID() }])
-
-    const [education, setEducation] = useState([{ degree: '', university: '', startDate: '', endDate: '', location: '', aboutEducation: '', id:crypto.randomUUID() }])
-
-    const [qualifications, setQualifications] = useState({ certificates:'', technologies:'', skills:'', interests:'' })
-
-    const [resumeVisible, setResumeVisible] = useState(false);
-
-    const [language, setLanguage] = useState('en');
     
-
     function addExperience () {
         setExperiences(prev => [...prev, { job: '', companyName:'', startMonth: '', startYear: '', aboutJob:'', id:crypto.randomUUID() }])
     }    
@@ -260,8 +261,9 @@ export default function App(){
     return (
         <main>
             <div className="form-section">
-                <Header 
-                    logo= "cviotopis" 
+                <Header
+                    firstTwo="cv" 
+                    logo= "iotopis" 
                     link= "https://github.com/franvlahovic"
                     image={GitHubIcon}
                     text= "FranVlahović"
@@ -291,7 +293,8 @@ export default function App(){
                     language={language}
                     translations={translations}
                     resumeVisible={resumeVisible}
-                />    
+                />
+                <Footer />    
             </div>
             <div className="rendered-section" style={{ display: resumeVisible ? "block" : "none" }}>
                 <RenderResume personalInfo={personalInfo} experiences={experiences} education={education} qualifications={qualifications} resumeVisible={resumeVisible} translations={translations} language={language} />

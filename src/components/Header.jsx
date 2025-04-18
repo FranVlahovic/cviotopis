@@ -1,10 +1,10 @@
 import AddButton from "./MainButton";
 
 
-export default function Header({ logo, text, image, altText, link, setLanguage, resumeVisible, handleEdit, handleReset, boilerplateCV }) {
+export default function Header({ logo, firstTwo, text, image, altText, link, setLanguage, resumeVisible, handleEdit, handleReset, boilerplateCV }) {
     return (
         <header className="header">
-            <h1 className="header-logo">{logo}</h1>
+            <h1 className="header-logo"><span>{firstTwo}</span>{logo}</h1>
             <div className="header-right">
                 <a className="header-link" href={link} target="_blank" rel="noopener noreferrer">
                     {text}
