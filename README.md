@@ -11,7 +11,7 @@
 <br />
 
 <div align="center">
-  <img src="/src/assets/screenshots/cviotopis.png" alt="Main Project Screenshot">
+  <img src="/src/assets/screenshots/cviotopis.png" style='width:1400px' alt="Main Project Screenshot">
 
   <h3 align="center">Cviotopis</h3>
 
@@ -54,31 +54,27 @@
 
 ## Gallery
 
-<div align="left">
+<div align="center">
     <h3>Full Size</h3>
-    <img src='/src/assets/screenshots/cviotopis.png' />
-    <img src='/src/assets/screenshots/cviotopis_rendered.png' />
+    <img src='/src/assets/screenshots/cviotopis.png' style='width: 500px' />
+    <img src='/src/assets/screenshots/cviotopis_rendered.png' style='width: 500px' />
     <h4>Changed Language</h4>
-    <img src='/src/assets/screenshots/hr_layout.png' />
-    <img src='/src/assets/screenshots/hr_layout2.png' />
+    <img src='/src/assets/screenshots/hr_layout.png' style='width: 500px' />
+    <img src='/src/assets/screenshots/hr_layout2.png' style='width: 500px' />
 </div>
 
-<div align="left">
-    <h3>Tablet</h3>
-    <img src='/src/assets/screenshots/tablet.png' />
-</div>
-
-<div align="left">
-    <h3>Mobile</h3>
-    <img src='/src/assets/screenshots/cviotopis_mobile.png' />
+<div align="center">
+    <h3>Tablet & Mobile</h3>
+    <img src='/src/assets/screenshots/tablet.png' style='height: 1000px' />
+    <img src='/src/assets/screenshots/cviotopis_mobile.png' style='height: 1000px' />
 </div>
 
 ---
 
 ## Supported Languages
 
-<h3><img src='https://en.wikipedia.org/wiki/Flag_of_the_United_States#/media/File:Flag_of_the_United_States.svg' /> English (Default)</h3>
-<h3><img src='https://en.wikipedia.org/wiki/Flag_of_Croatia#/media/File:Flag_of_Croatia.svg' /> Croatian</h3>
+<h3><img src='https://flagcdn.com/us.svg' style='width: 20px' /> English (Default)</h3>
+<h3><img src='https://flagcdn.com/hr.svg' style='width: 20px' /> Croatian</h3>
 
 ## Built With
 
