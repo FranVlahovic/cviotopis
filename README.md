@@ -22,7 +22,7 @@
   </p>
 
   <div>  
-    <a href="https://cviotopis.netlify.com" style='font-weight: 700'>Live</a>
+    <a href="https://cviotopis.netlify.app" style='font-weight: 700'>Live</a>
     ·
     <a href="https://github.com/FranVlahovic/Cviotopis/issues/new?labels=bug&template=bug-report---.md" style='font-weight: 700'>Report Bug</a>
     ·
