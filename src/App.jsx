@@ -1,5 +1,7 @@
 import { useState } from "react";
 import GitHubIcon from "./assets/icons/github.svg";
+import { useReactToPrint } from "react-to-print";
+import { useRef } from "react";
 
 import Header from "./components/Header";
 import MainContent from "./components/MainContent";
@@ -20,6 +22,10 @@ export default function App(){
     const [resumeVisible, setResumeVisible] = useState(false);
     
     const [language, setLanguage] = useState('en');
+
+    const [isPrinting, setIsPrinting] = useState(false);
+
+    const isMobile = window.innerWidth <= 1024;
     
     const translations = {
         en: {
@@ -184,9 +190,29 @@ export default function App(){
         setResumeVisible(false);
     }
     
-    function handlePrint() {
-        window.print();
+    function handlePrint(){
+        reactToPrintFn();
     }
+    
+    function printMobile() {
+        setIsPrinting(true);
+        setResumeVisible(true);
+      
+        setTimeout(() => {
+          reactToPrintFn();
+      
+          // Reset state AFTER giving react-to-print time to finish
+          setTimeout(() => {
+            setIsPrinting(false);
+            setResumeVisible(false);
+          }, 1000); // Delay may need adjustment
+        }, 0);
+    }
+      
+      
+
+    const contentRef = useRef(null);
+    const reactToPrintFn = useReactToPrint({ contentRef });
 
     function boilerplateCV(e) {
         e.preventDefault();
@@ -273,6 +299,7 @@ export default function App(){
                     handleReset={handleReset}
                     resumeVisible={resumeVisible}
                     boilerplateCV={boilerplateCV}
+                    isMobile={isMobile}
                 />
                 <MainContent 
                     personalInfo={personalInfo} 
@@ -283,8 +310,7 @@ export default function App(){
                     qualifications={qualifications} 
                     removeExperience={removeExperience} 
                     removeEducation={removeEducation} 
-                    handleSubmit={handleSubmit} 
-                    handlePrint={handlePrint} 
+                    handleSubmit={handleSubmit}
                     handleChange={handleChange} 
                     setPersonalInfo={setPersonalInfo} 
                     setEducation={setEducation} 
@@ -293,11 +319,15 @@ export default function App(){
                     language={language}
                     translations={translations}
                     resumeVisible={resumeVisible}
+                    isMobile={isMobile}
+                    handlePrint={handlePrint}
+                    printMobile={printMobile}
                 />
-                <Footer />    
+                <Footer />
             </div>
-            <div className="rendered-section" style={{ display: resumeVisible ? "block" : "none" }}>
-                <RenderResume personalInfo={personalInfo} experiences={experiences} education={education} qualifications={qualifications} resumeVisible={resumeVisible} translations={translations} language={language} />
+
+            <div className={isMobile && !isPrinting ? 'modal-rendered-section' : 'rendered-section'} style={{display: resumeVisible ? 'block' : 'none'}} ref={contentRef} >
+                <RenderResume personalInfo={personalInfo} experiences={experiences} education={education} qualifications={qualifications} resumeVisible={resumeVisible} translations={translations} language={language} isMobile={isMobile} printMobile={printMobile} handleEdit={handleEdit} isPrinting={isPrinting} handleReset={handleReset} />         
             </div>
         </main>
     );

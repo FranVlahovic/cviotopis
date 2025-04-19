@@ -1,8 +1,15 @@
-export default function RenderResume({ personalInfo, experiences, education, qualifications, translations, language }) {
-    const lang = translations[language];
+import MainButton from "./MainButton";
+import DownloadIcon from "/src/assets/icons/download.svg";
 
+export default function RenderResume({ personalInfo, experiences, education, qualifications, translations, language, isMobile, handleEdit, isPrinting, handleReset, printMobile}) {
+    const lang = translations[language];
+        
     return (
-        <>
+        <>  
+            {isMobile && !isPrinting && 
+                    <MainButton buttonClass={'close-modal'} text={'X'} aria={'Close Rendered CV Modal'} action={handleEdit} />
+            }
+            
             <div className="rendered-personal-container">
                 <h1>{personalInfo.firstName} {personalInfo.lastName}</h1>
                 <div className="rendered-personal-nav">
@@ -63,6 +70,14 @@ export default function RenderResume({ personalInfo, experiences, education, qua
                     <h3>{lang.interests}: </h3><p>{qualifications.interests}</p>
                 </div>
             </div>
+
+            {isMobile && !isPrinting &&
+                <div className="modal-controls">
+                    <MainButton buttonClass={"edit-modal-button"} action={handleEdit} aria={"Edit Form Inputs"} text={"Edit Form"} /> 
+                    <MainButton buttonClass={"reset-modal-button"} action={handleReset} aria={"Reset Form Inputs"} text={"Reset Form"} />
+                    <MainButton buttonClass={'modal-download-cv'} text={lang.download} aria={'Download CV Resume'} image={DownloadIcon} altImage={'Download Icon'} action={printMobile}/>
+                </div>
+            }
         </>
     );
 }

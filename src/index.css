@@ -147,6 +147,8 @@ select:hover,
 .download-cv,
 .submit-button,
 .edit-form-button,
+.edit-modal-button,
+.reset-modal-button,
 .reset-form-button,
 select {
   background-color: var(--inputs-buttons);
@@ -199,10 +201,19 @@ select {
   filter: var(--thrash);
 }
 
+.modal-download-cv {
+  background-color: var(--inputs-buttons);
+  border: 1px solid var(--border);
+  border-radius: 0.5em;
+  font-size: 1.2rem;
+  padding: 0.7em;
+  color: var(--secondary-color);
+}
 .add-experience,
 .add-education,
 .download-cv,
-.submit-button {
+.submit-button,
+.modal-download-cv {
   display: flex;
   max-width: 12rem;
   align-items: center;
@@ -216,7 +227,8 @@ select {
   max-width: 11rem;
 }
 
-.download-cv {
+.download-cv,
+.modal-download-cv {
   width: 9.6em;
 }
 
@@ -263,7 +275,8 @@ select {
 }
 
 /* Rendered Containers */
-.rendered-section {
+.rendered-section,
+.modal-rendered-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -295,23 +308,6 @@ select {
   margin-bottom: 0.5em;
 }
 
-@media print {
-  body {
-    visibility: hidden;
-  }
-  .rendered-section {
-    width: 100%;
-    visibility: visible;
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    page-break-inside: avoid;
-    display: block;
-  }
-}
-
 .rendered-section h1 {
   font-size: 40px;
 }
@@ -335,7 +331,8 @@ select {
   border-bottom: 2px solid var(--primary-color);
   text-transform: uppercase;
 }
-.rendered-section h3 {
+.rendered-section h3,
+.modal-rendered-section h3 {
   font-size: 16px;
   letter-spacing: 2%;
   font-weight: 700;
@@ -346,7 +343,8 @@ select {
   font-weight: 500;
   font-style: italic;
 }
-.rendered-section p {
+.rendered-section p,
+.modal-rendered-section p {
   font-size: 15px;
 }
 .rendered-personal-container,
@@ -422,17 +420,57 @@ footer a:hover {
   .form-group {
     max-width: 100%;
   }
-  .reset-form-button {
-    right: 6.5%;
+  .modal-rendered-section {
+    background-color: var(--secondary-color);
+    position: absolute;
+    padding: 2em;
+    padding-top: 1em;
+    top: 20%;
+    left: 12%;
+    border-radius: 0.5em;
+  }
+  .close-modal {
+    display: flex;
+    border: none;
+    justify-self: flex-end;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: #bd1624;
+  }
+  .modal-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1em;
+  }
+  .edit-modal-button,
+  .reset-modal-button,
+  .modal-download-cv {
+    font-size: 0.9em;
+    padding: 0.5em;
+    margin-top: 0;
+  }
+  .modal-download-cv {
+    max-width: 9.1em;
+  }
+
+  .modal-download-cv img {
+    filter: invert(1);
+    max-width: 1.2em;
   }
 }
 
 @media (max-width: 768px) {
-  .reset-form-button {
-    right: 8.5%;
-  }
   .form-group {
     max-width: 90%;
+  }
+  .modal-rendered-section {
+    left: 0%;
+    top: 15%;
+    scale: 0.8;
+  }
+  .modal-controls {
+    justify-self: center;
   }
 }
 
@@ -453,6 +491,9 @@ footer a:hover {
   }
   .rendered-personal-container {
     align-items: center;
+  }
+  .rendered-personal-container h1 {
+    align-self: flex-start;
   }
   .rendered-personal-nav {
     height: 2em;
@@ -499,6 +540,29 @@ footer a:hover {
     text-align: center;
     gap: 8em;
   }
+  .modal-rendered-section {
+    scale: 0.8;
+    padding: 1em;
+  }
+
+  .close-modal {
+    font-size: 1rem;
+  }
+
+  .modal-controls {
+    scale: 0.8;
+    gap: 1em;
+  }
+}
+
+@media (max-width: 375px) {
+  .modal-rendered-section {
+    scale: 0.9;
+    top: 22%;
+  }
+  .rendered-personal-container {
+    scale: 0.85;
+  }
 }
 
 @media (max-width: 320px) {
@@ -517,8 +581,37 @@ footer a:hover {
     flex-direction: column;
   }
 
+  .inputs input {
+    max-width: 14em;
+  }
+
+  .experience-heading {
+    justify-content: space-between;
+  }
+
+  footer {
+    scale: 0.9;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
   .personal-info-container {
     display: flex;
     flex-direction: column;
+  }
+
+  .modal-rendered-section {
+    scale: 0.9;
+  }
+
+  .edit-modal-button,
+  .reset-modal-button {
+    width: 7em;
+  }
+  .modal-download-cv {
+    width: 10em;
+  }
+  .rendered-personal-nav {
+    scale: 0.6;
   }
 }

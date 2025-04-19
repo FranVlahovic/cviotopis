@@ -6,7 +6,7 @@ import Qualifications from "./sections/Qualifications";
 import WorkExperience from "./sections/WorkExperience";
 import MainButton from "../components/MainButton";
 
-export default function MainContent({ personalInfo, experiences, addExperience, education, addEducation, qualifications, removeExperience, removeEducation, handleSubmit, handlePrint, handleChange, setExperiences, setEducation, setQualifications, setPersonalInfo, language, translations, resumeVisible }){
+export default function MainContent({ personalInfo, experiences, addExperience, education, addEducation, qualifications, removeExperience, removeEducation, handleSubmit, handleChange, setExperiences, setEducation, setQualifications, setPersonalInfo, language, translations, resumeVisible, isMobile, handlePrint}){
     const lang = translations[language];
     
     return (
@@ -18,7 +18,7 @@ export default function MainContent({ personalInfo, experiences, addExperience, 
             
             <div className="submit-print">
                 <MainButton buttonClass={'submit-button'} aria={'Submit Form'} text={lang.submitForm} type="submit" disabled={resumeVisible} />
-                <MainButton buttonClass={'download-cv'} text={lang.download} aria={'Download CV Resume'} image={DownloadIcon} altImage={'Download Icon'} action={handlePrint} disabled={!resumeVisible} />
+                {!isMobile && <MainButton buttonClass={'download-cv'} text={lang.download} aria={'Download CV Resume'} image={DownloadIcon} altImage={'Download Icon'} action={handlePrint} disabled={!resumeVisible} /> }
             </div>
         </form>
     );

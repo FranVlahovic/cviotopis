@@ -1,7 +1,7 @@
 import AddButton from "./MainButton";
 
 
-export default function Header({ logo, firstTwo, text, image, altText, link, setLanguage, resumeVisible, handleEdit, handleReset, boilerplateCV }) {
+export default function Header({ logo, firstTwo, text, image, altText, link, setLanguage, resumeVisible, handleEdit, handleReset, boilerplateCV, isMobile }) {
     return (
         <header className="header">
             <h1 className="header-logo"><span>{firstTwo}</span>{logo}</h1>
@@ -16,7 +16,7 @@ export default function Header({ logo, firstTwo, text, image, altText, link, set
                 </select>
                 <AddButton action={boilerplateCV} />
                 
-                {resumeVisible &&
+                {resumeVisible && !isMobile &&
                     <>
                         <AddButton buttonClass={"edit-form-button"} action={handleEdit} aria={"Edit Form Inputs"} text={"Edit Form"} />
                         <AddButton buttonClass={"reset-form-button"} action={handleReset} aria={"Reset Form Inputs"} text={"Reset Form"} />
