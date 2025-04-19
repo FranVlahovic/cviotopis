@@ -538,7 +538,8 @@ footer a:hover {
   footer {
     align-items: center;
     text-align: center;
-    gap: 8em;
+    gap: 2em;
+    flex-direction: column;
   }
   .modal-rendered-section {
     scale: 0.8;

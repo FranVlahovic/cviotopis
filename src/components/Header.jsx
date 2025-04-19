@@ -1,7 +1,7 @@
 import AddButton from "./MainButton";
 
 
-export default function Header({ logo, firstTwo, text, image, altText, link, setLanguage, resumeVisible, handleEdit, handleReset, boilerplateCV, isMobile }) {
+export default function Header({ logo, firstTwo, text, image, altText, link, setLanguage, resumeVisible, handleEdit, handleReset, isMobile }) {
     return (
         <header className="header">
             <h1 className="header-logo"><span>{firstTwo}</span>{logo}</h1>
@@ -14,7 +14,7 @@ export default function Header({ logo, firstTwo, text, image, altText, link, set
                     <option value="en">ENG</option>
                     <option value="hr">HR</option>
                 </select>
-                <AddButton action={boilerplateCV} />
+                
                 
                 {resumeVisible && !isMobile &&
                     <>
